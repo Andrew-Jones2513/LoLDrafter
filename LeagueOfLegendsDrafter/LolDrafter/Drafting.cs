@@ -447,7 +447,7 @@ namespace LolDrafter
         // Opens the Learning Form
         private void btnLearn_Click(object sender, EventArgs e)
         {
-            Learn learnform = new Learn(searchedImages);
+            Learn learnform = new Learn(searchedImages, champions);
             learnform.Show();
         }
     }
