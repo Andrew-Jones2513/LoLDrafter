@@ -58,28 +58,31 @@
             this.lblBMatchTwo = new System.Windows.Forms.Label();
             this.tcLA = new System.Windows.Forms.TabControl();
             this.tpAdd = new System.Windows.Forms.TabPage();
-            this.tpLearn = new System.Windows.Forms.TabPage();
-            this.btnLearn = new System.Windows.Forms.Button();
-            this.txtAddChamp = new System.Windows.Forms.TextBox();
-            this.txtChampA = new System.Windows.Forms.TextBox();
-            this.cbFirstPos = new System.Windows.Forms.ComboBox();
-            this.pbAdd = new System.Windows.Forms.PictureBox();
-            this.btnUpload = new System.Windows.Forms.Button();
-            this.btnAddChamp = new System.Windows.Forms.Button();
-            this.lblChampPic = new System.Windows.Forms.Label();
-            this.lblAddName = new System.Windows.Forms.Label();
-            this.lblChampA = new System.Windows.Forms.Label();
-            this.lblChampItem = new System.Windows.Forms.Label();
-            this.txtChampItem = new System.Windows.Forms.TextBox();
-            this.lblChampPositions = new System.Windows.Forms.Label();
-            this.cbSecondPos = new System.Windows.Forms.ComboBox();
-            this.lblGoodMatch = new System.Windows.Forms.Label();
-            this.cbGoodChampOne = new System.Windows.Forms.ComboBox();
+            this.lblError = new System.Windows.Forms.Label();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.cbBadChampTwo = new System.Windows.Forms.ComboBox();
+            this.cbGoodChampTwo = new System.Windows.Forms.ComboBox();
             this.lblBadMatch = new System.Windows.Forms.Label();
             this.cbBadChampOne = new System.Windows.Forms.ComboBox();
-            this.cbGoodChampTwo = new System.Windows.Forms.ComboBox();
-            this.cbBadChampTwo = new System.Windows.Forms.ComboBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.lblGoodMatch = new System.Windows.Forms.Label();
+            this.cbGoodChampOne = new System.Windows.Forms.ComboBox();
+            this.cbSecondPos = new System.Windows.Forms.ComboBox();
+            this.lblChampPositions = new System.Windows.Forms.Label();
+            this.lblChampItem = new System.Windows.Forms.Label();
+            this.txtChampItem = new System.Windows.Forms.TextBox();
+            this.lblChampA = new System.Windows.Forms.Label();
+            this.lblAddName = new System.Windows.Forms.Label();
+            this.lblChampPic = new System.Windows.Forms.Label();
+            this.btnAddChamp = new System.Windows.Forms.Button();
+            this.btnUpload = new System.Windows.Forms.Button();
+            this.pbAdd = new System.Windows.Forms.PictureBox();
+            this.cbFirstPos = new System.Windows.Forms.ComboBox();
+            this.txtChampA = new System.Windows.Forms.TextBox();
+            this.txtAddChamp = new System.Windows.Forms.TextBox();
+            this.tpLearn = new System.Windows.Forms.TabPage();
+            this.lblErrorLearn = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnLearn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbChampImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGood1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGood2)).BeginInit();
@@ -87,8 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBad1)).BeginInit();
             this.tcLA.SuspendLayout();
             this.tpAdd.SuspendLayout();
-            this.tpLearn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
+            this.tpLearn.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -100,6 +103,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(500, 27);
             this.txtSearch.TabIndex = 103;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // paneMain
             // 
@@ -180,6 +184,7 @@
             this.btnAll.TabIndex = 97;
             this.btnAll.Text = "All";
             this.btnAll.UseVisualStyleBackColor = true;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnTop
             // 
@@ -190,6 +195,7 @@
             this.btnTop.TabIndex = 98;
             this.btnTop.Text = "Top";
             this.btnTop.UseVisualStyleBackColor = true;
+            this.btnTop.Click += new System.EventHandler(this.btnTop_Click);
             // 
             // btnJungle
             // 
@@ -200,6 +206,7 @@
             this.btnJungle.TabIndex = 99;
             this.btnJungle.Text = "Jungle";
             this.btnJungle.UseVisualStyleBackColor = true;
+            this.btnJungle.Click += new System.EventHandler(this.btnJungle_Click);
             // 
             // btnMiddle
             // 
@@ -210,6 +217,7 @@
             this.btnMiddle.TabIndex = 100;
             this.btnMiddle.Text = "Middle";
             this.btnMiddle.UseVisualStyleBackColor = true;
+            this.btnMiddle.Click += new System.EventHandler(this.btnMiddle_Click);
             // 
             // btnADC
             // 
@@ -220,6 +228,7 @@
             this.btnADC.TabIndex = 101;
             this.btnADC.Text = "ADC";
             this.btnADC.UseVisualStyleBackColor = true;
+            this.btnADC.Click += new System.EventHandler(this.btnADC_Click);
             // 
             // btnSupport
             // 
@@ -230,6 +239,7 @@
             this.btnSupport.TabIndex = 102;
             this.btnSupport.Text = "Support";
             this.btnSupport.UseVisualStyleBackColor = true;
+            this.btnSupport.Click += new System.EventHandler(this.btnSupport_Click);
             // 
             // pbChampImage
             // 
@@ -245,9 +255,9 @@
             // 
             this.lblChampName.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblChampName.ForeColor = System.Drawing.Color.White;
-            this.lblChampName.Location = new System.Drawing.Point(168, 28);
+            this.lblChampName.Location = new System.Drawing.Point(168, 57);
             this.lblChampName.Name = "lblChampName";
-            this.lblChampName.Size = new System.Drawing.Size(207, 81);
+            this.lblChampName.Size = new System.Drawing.Size(207, 75);
             this.lblChampName.TabIndex = 105;
             this.lblChampName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -413,6 +423,7 @@
             // tpAdd
             // 
             this.tpAdd.BackColor = System.Drawing.Color.DimGray;
+            this.tpAdd.Controls.Add(this.lblError);
             this.tpAdd.Controls.Add(this.btnUpdate);
             this.tpAdd.Controls.Add(this.cbBadChampTwo);
             this.tpAdd.Controls.Add(this.cbGoodChampTwo);
@@ -440,9 +451,193 @@
             this.tpAdd.TabIndex = 1;
             this.tpAdd.Text = "tabPage2";
             // 
+            // lblError
+            // 
+            this.lblError.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(152, 455);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(127, 66);
+            this.lblError.TabIndex = 22;
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(285, 481);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 29);
+            this.btnUpdate.TabIndex = 21;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // cbBadChampTwo
+            // 
+            this.cbBadChampTwo.FormattingEnabled = true;
+            this.cbBadChampTwo.Location = new System.Drawing.Point(229, 424);
+            this.cbBadChampTwo.Name = "cbBadChampTwo";
+            this.cbBadChampTwo.Size = new System.Drawing.Size(132, 28);
+            this.cbBadChampTwo.TabIndex = 20;
+            // 
+            // cbGoodChampTwo
+            // 
+            this.cbGoodChampTwo.FormattingEnabled = true;
+            this.cbGoodChampTwo.Location = new System.Drawing.Point(70, 424);
+            this.cbGoodChampTwo.Name = "cbGoodChampTwo";
+            this.cbGoodChampTwo.Size = new System.Drawing.Size(132, 28);
+            this.cbGoodChampTwo.TabIndex = 19;
+            // 
+            // lblBadMatch
+            // 
+            this.lblBadMatch.AutoSize = true;
+            this.lblBadMatch.Location = new System.Drawing.Point(244, 350);
+            this.lblBadMatch.Name = "lblBadMatch";
+            this.lblBadMatch.Size = new System.Drawing.Size(105, 20);
+            this.lblBadMatch.TabIndex = 18;
+            this.lblBadMatch.Text = "Bad MatchUps";
+            // 
+            // cbBadChampOne
+            // 
+            this.cbBadChampOne.FormattingEnabled = true;
+            this.cbBadChampOne.Location = new System.Drawing.Point(230, 388);
+            this.cbBadChampOne.Name = "cbBadChampOne";
+            this.cbBadChampOne.Size = new System.Drawing.Size(132, 28);
+            this.cbBadChampOne.TabIndex = 17;
+            // 
+            // lblGoodMatch
+            // 
+            this.lblGoodMatch.AutoSize = true;
+            this.lblGoodMatch.Location = new System.Drawing.Point(79, 350);
+            this.lblGoodMatch.Name = "lblGoodMatch";
+            this.lblGoodMatch.Size = new System.Drawing.Size(116, 20);
+            this.lblGoodMatch.TabIndex = 16;
+            this.lblGoodMatch.Text = "Good MatchUps";
+            // 
+            // cbGoodChampOne
+            // 
+            this.cbGoodChampOne.FormattingEnabled = true;
+            this.cbGoodChampOne.Location = new System.Drawing.Point(70, 388);
+            this.cbGoodChampOne.Name = "cbGoodChampOne";
+            this.cbGoodChampOne.Size = new System.Drawing.Size(132, 28);
+            this.cbGoodChampOne.TabIndex = 15;
+            // 
+            // cbSecondPos
+            // 
+            this.cbSecondPos.FormattingEnabled = true;
+            this.cbSecondPos.Location = new System.Drawing.Point(263, 302);
+            this.cbSecondPos.Name = "cbSecondPos";
+            this.cbSecondPos.Size = new System.Drawing.Size(132, 28);
+            this.cbSecondPos.TabIndex = 14;
+            // 
+            // lblChampPositions
+            // 
+            this.lblChampPositions.AutoSize = true;
+            this.lblChampPositions.Location = new System.Drawing.Point(36, 306);
+            this.lblChampPositions.Name = "lblChampPositions";
+            this.lblChampPositions.Size = new System.Drawing.Size(70, 20);
+            this.lblChampPositions.TabIndex = 13;
+            this.lblChampPositions.Text = "Positions:";
+            // 
+            // lblChampItem
+            // 
+            this.lblChampItem.AutoSize = true;
+            this.lblChampItem.Location = new System.Drawing.Point(36, 244);
+            this.lblChampItem.Name = "lblChampItem";
+            this.lblChampItem.Size = new System.Drawing.Size(80, 20);
+            this.lblChampItem.TabIndex = 12;
+            this.lblChampItem.Text = "Item Build:";
+            // 
+            // txtChampItem
+            // 
+            this.txtChampItem.Location = new System.Drawing.Point(159, 241);
+            this.txtChampItem.Name = "txtChampItem";
+            this.txtChampItem.Size = new System.Drawing.Size(236, 27);
+            this.txtChampItem.TabIndex = 11;
+            // 
+            // lblChampA
+            // 
+            this.lblChampA.AutoSize = true;
+            this.lblChampA.Location = new System.Drawing.Point(36, 182);
+            this.lblChampA.Name = "lblChampA";
+            this.lblChampA.Size = new System.Drawing.Size(117, 20);
+            this.lblChampA.TabIndex = 10;
+            this.lblChampA.Text = "Champ Abilities:";
+            // 
+            // lblAddName
+            // 
+            this.lblAddName.AutoSize = true;
+            this.lblAddName.Location = new System.Drawing.Point(36, 121);
+            this.lblAddName.Name = "lblAddName";
+            this.lblAddName.Size = new System.Drawing.Size(103, 20);
+            this.lblAddName.TabIndex = 9;
+            this.lblAddName.Text = "Champ Name:";
+            // 
+            // lblChampPic
+            // 
+            this.lblChampPic.AutoSize = true;
+            this.lblChampPic.Location = new System.Drawing.Point(201, 25);
+            this.lblChampPic.Name = "lblChampPic";
+            this.lblChampPic.Size = new System.Drawing.Size(105, 20);
+            this.lblChampPic.TabIndex = 8;
+            this.lblChampPic.Text = "Champ Picture";
+            // 
+            // btnAddChamp
+            // 
+            this.btnAddChamp.Location = new System.Drawing.Point(71, 481);
+            this.btnAddChamp.Name = "btnAddChamp";
+            this.btnAddChamp.Size = new System.Drawing.Size(75, 29);
+            this.btnAddChamp.TabIndex = 7;
+            this.btnAddChamp.Text = "Add";
+            this.btnAddChamp.UseVisualStyleBackColor = true;
+            this.btnAddChamp.Click += new System.EventHandler(this.btnAddChamp_Click);
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(205, 58);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(94, 29);
+            this.btnUpload.TabIndex = 6;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // pbAdd
+            // 
+            this.pbAdd.Location = new System.Drawing.Point(39, 14);
+            this.pbAdd.Name = "pbAdd";
+            this.pbAdd.Size = new System.Drawing.Size(100, 92);
+            this.pbAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAdd.TabIndex = 5;
+            this.pbAdd.TabStop = false;
+            // 
+            // cbFirstPos
+            // 
+            this.cbFirstPos.FormattingEnabled = true;
+            this.cbFirstPos.Location = new System.Drawing.Point(125, 302);
+            this.cbFirstPos.Name = "cbFirstPos";
+            this.cbFirstPos.Size = new System.Drawing.Size(132, 28);
+            this.cbFirstPos.TabIndex = 4;
+            this.cbFirstPos.SelectedIndexChanged += new System.EventHandler(this.cbFirstPos_SelectedIndexChanged);
+            // 
+            // txtChampA
+            // 
+            this.txtChampA.Location = new System.Drawing.Point(159, 178);
+            this.txtChampA.Name = "txtChampA";
+            this.txtChampA.Size = new System.Drawing.Size(236, 27);
+            this.txtChampA.TabIndex = 2;
+            // 
+            // txtAddChamp
+            // 
+            this.txtAddChamp.Location = new System.Drawing.Point(159, 119);
+            this.txtAddChamp.Name = "txtAddChamp";
+            this.txtAddChamp.Size = new System.Drawing.Size(236, 27);
+            this.txtAddChamp.TabIndex = 0;
+            // 
             // tpLearn
             // 
             this.tpLearn.BackColor = System.Drawing.Color.DimGray;
+            this.tpLearn.Controls.Add(this.lblErrorLearn);
+            this.tpLearn.Controls.Add(this.btnRemove);
             this.tpLearn.Controls.Add(this.pbChampImage);
             this.tpLearn.Controls.Add(this.lblChampName);
             this.tpLearn.Controls.Add(this.pbGood1);
@@ -465,6 +660,25 @@
             this.tpLearn.TabIndex = 0;
             this.tpLearn.Text = "tabPage1";
             // 
+            // lblErrorLearn
+            // 
+            this.lblErrorLearn.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblErrorLearn.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorLearn.Location = new System.Drawing.Point(249, 12);
+            this.lblErrorLearn.Name = "lblErrorLearn";
+            this.lblErrorLearn.Size = new System.Drawing.Size(152, 55);
+            this.lblErrorLearn.TabIndex = 121;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(149, 8);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(94, 29);
+            this.btnRemove.TabIndex = 120;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // btnLearn
             // 
             this.btnLearn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -477,176 +691,6 @@
             this.btnLearn.Text = "Learn";
             this.btnLearn.UseVisualStyleBackColor = false;
             this.btnLearn.Click += new System.EventHandler(this.btnLearn_Click);
-            // 
-            // txtAddChamp
-            // 
-            this.txtAddChamp.Location = new System.Drawing.Point(159, 119);
-            this.txtAddChamp.Name = "txtAddChamp";
-            this.txtAddChamp.Size = new System.Drawing.Size(236, 27);
-            this.txtAddChamp.TabIndex = 0;
-            // 
-            // txtChampA
-            // 
-            this.txtChampA.Location = new System.Drawing.Point(159, 178);
-            this.txtChampA.Name = "txtChampA";
-            this.txtChampA.Size = new System.Drawing.Size(236, 27);
-            this.txtChampA.TabIndex = 2;
-            // 
-            // cbFirstPos
-            // 
-            this.cbFirstPos.FormattingEnabled = true;
-            this.cbFirstPos.Location = new System.Drawing.Point(125, 302);
-            this.cbFirstPos.Name = "cbFirstPos";
-            this.cbFirstPos.Size = new System.Drawing.Size(132, 28);
-            this.cbFirstPos.TabIndex = 4;
-            // 
-            // pbAdd
-            // 
-            this.pbAdd.Location = new System.Drawing.Point(39, 14);
-            this.pbAdd.Name = "pbAdd";
-            this.pbAdd.Size = new System.Drawing.Size(100, 92);
-            this.pbAdd.TabIndex = 5;
-            this.pbAdd.TabStop = false;
-            // 
-            // btnUpload
-            // 
-            this.btnUpload.Location = new System.Drawing.Point(205, 58);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(94, 29);
-            this.btnUpload.TabIndex = 6;
-            this.btnUpload.Text = "Upload";
-            this.btnUpload.UseVisualStyleBackColor = true;
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
-            // btnAddChamp
-            // 
-            this.btnAddChamp.Location = new System.Drawing.Point(97, 481);
-            this.btnAddChamp.Name = "btnAddChamp";
-            this.btnAddChamp.Size = new System.Drawing.Size(75, 29);
-            this.btnAddChamp.TabIndex = 7;
-            this.btnAddChamp.Text = "Add";
-            this.btnAddChamp.UseVisualStyleBackColor = true;
-            this.btnAddChamp.Click += new System.EventHandler(this.btnAddChamp_Click);
-            // 
-            // lblChampPic
-            // 
-            this.lblChampPic.AutoSize = true;
-            this.lblChampPic.Location = new System.Drawing.Point(201, 25);
-            this.lblChampPic.Name = "lblChampPic";
-            this.lblChampPic.Size = new System.Drawing.Size(105, 20);
-            this.lblChampPic.TabIndex = 8;
-            this.lblChampPic.Text = "Champ Picture";
-            // 
-            // lblAddName
-            // 
-            this.lblAddName.AutoSize = true;
-            this.lblAddName.Location = new System.Drawing.Point(36, 121);
-            this.lblAddName.Name = "lblAddName";
-            this.lblAddName.Size = new System.Drawing.Size(103, 20);
-            this.lblAddName.TabIndex = 9;
-            this.lblAddName.Text = "Champ Name:";
-            // 
-            // lblChampA
-            // 
-            this.lblChampA.AutoSize = true;
-            this.lblChampA.Location = new System.Drawing.Point(36, 182);
-            this.lblChampA.Name = "lblChampA";
-            this.lblChampA.Size = new System.Drawing.Size(117, 20);
-            this.lblChampA.TabIndex = 10;
-            this.lblChampA.Text = "Champ Abilities:";
-            // 
-            // lblChampItem
-            // 
-            this.lblChampItem.AutoSize = true;
-            this.lblChampItem.Location = new System.Drawing.Point(36, 244);
-            this.lblChampItem.Name = "lblChampItem";
-            this.lblChampItem.Size = new System.Drawing.Size(80, 20);
-            this.lblChampItem.TabIndex = 12;
-            this.lblChampItem.Text = "Item Build:";
-            // 
-            // txtChampItem
-            // 
-            this.txtChampItem.Location = new System.Drawing.Point(159, 241);
-            this.txtChampItem.Name = "txtChampItem";
-            this.txtChampItem.Size = new System.Drawing.Size(236, 27);
-            this.txtChampItem.TabIndex = 11;
-            // 
-            // lblChampPositions
-            // 
-            this.lblChampPositions.AutoSize = true;
-            this.lblChampPositions.Location = new System.Drawing.Point(36, 306);
-            this.lblChampPositions.Name = "lblChampPositions";
-            this.lblChampPositions.Size = new System.Drawing.Size(70, 20);
-            this.lblChampPositions.TabIndex = 13;
-            this.lblChampPositions.Text = "Positions:";
-            // 
-            // cbSecondPos
-            // 
-            this.cbSecondPos.FormattingEnabled = true;
-            this.cbSecondPos.Location = new System.Drawing.Point(263, 302);
-            this.cbSecondPos.Name = "cbSecondPos";
-            this.cbSecondPos.Size = new System.Drawing.Size(132, 28);
-            this.cbSecondPos.TabIndex = 14;
-            // 
-            // lblGoodMatch
-            // 
-            this.lblGoodMatch.AutoSize = true;
-            this.lblGoodMatch.Location = new System.Drawing.Point(79, 350);
-            this.lblGoodMatch.Name = "lblGoodMatch";
-            this.lblGoodMatch.Size = new System.Drawing.Size(116, 20);
-            this.lblGoodMatch.TabIndex = 16;
-            this.lblGoodMatch.Text = "Good MatchUps";
-            // 
-            // cbGoodChampOne
-            // 
-            this.cbGoodChampOne.FormattingEnabled = true;
-            this.cbGoodChampOne.Location = new System.Drawing.Point(70, 388);
-            this.cbGoodChampOne.Name = "cbGoodChampOne";
-            this.cbGoodChampOne.Size = new System.Drawing.Size(132, 28);
-            this.cbGoodChampOne.TabIndex = 15;
-            // 
-            // lblBadMatch
-            // 
-            this.lblBadMatch.AutoSize = true;
-            this.lblBadMatch.Location = new System.Drawing.Point(244, 350);
-            this.lblBadMatch.Name = "lblBadMatch";
-            this.lblBadMatch.Size = new System.Drawing.Size(105, 20);
-            this.lblBadMatch.TabIndex = 18;
-            this.lblBadMatch.Text = "Bad MatchUps";
-            // 
-            // cbBadChampOne
-            // 
-            this.cbBadChampOne.FormattingEnabled = true;
-            this.cbBadChampOne.Location = new System.Drawing.Point(230, 388);
-            this.cbBadChampOne.Name = "cbBadChampOne";
-            this.cbBadChampOne.Size = new System.Drawing.Size(132, 28);
-            this.cbBadChampOne.TabIndex = 17;
-            // 
-            // cbGoodChampTwo
-            // 
-            this.cbGoodChampTwo.FormattingEnabled = true;
-            this.cbGoodChampTwo.Location = new System.Drawing.Point(70, 424);
-            this.cbGoodChampTwo.Name = "cbGoodChampTwo";
-            this.cbGoodChampTwo.Size = new System.Drawing.Size(132, 28);
-            this.cbGoodChampTwo.TabIndex = 19;
-            // 
-            // cbBadChampTwo
-            // 
-            this.cbBadChampTwo.FormattingEnabled = true;
-            this.cbBadChampTwo.Location = new System.Drawing.Point(229, 424);
-            this.cbBadChampTwo.Name = "cbBadChampTwo";
-            this.cbBadChampTwo.Size = new System.Drawing.Size(132, 28);
-            this.cbBadChampTwo.TabIndex = 20;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(253, 481);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 29);
-            this.btnUpdate.TabIndex = 21;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // Learn
             // 
@@ -679,9 +723,9 @@
             this.tcLA.ResumeLayout(false);
             this.tpAdd.ResumeLayout(false);
             this.tpAdd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             this.tpLearn.ResumeLayout(false);
             this.tpLearn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -740,5 +784,8 @@
         private Label lblChampItem;
         private TextBox txtChampItem;
         private Button btnUpdate;
+        private Label lblError;
+        private Button btnRemove;
+        private Label lblErrorLearn;
     }
 }

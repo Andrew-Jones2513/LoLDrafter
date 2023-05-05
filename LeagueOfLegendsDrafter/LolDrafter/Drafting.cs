@@ -318,7 +318,7 @@ namespace LolDrafter
         // Selects all jg champs for display
         private void btnJungle_Click(object sender, EventArgs e)
         {
-            AddImagesByPosition("Jg");
+            AddImagesByPosition("Jungle");
         }
 
 
@@ -339,7 +339,7 @@ namespace LolDrafter
         // Selects all sup champs for display
         private void btnSupport_Click(object sender, EventArgs e)
         {
-            AddImagesByPosition("Sup");
+            AddImagesByPosition("Support");
         }
 
 
